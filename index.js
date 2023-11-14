@@ -87,32 +87,32 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
+// Calculation for total number of months
+var totalMonths = finances.length
 
-var totalMonths = finances.length 
 var netTotal = 0
-
-var totalChange = 0 
-
+var totalChange = 0
 var greatestIncrease = 0
-
 var greatestDecrease = 0
 
 for (var i = 0; i < finances.length; i++) {
+
+  // Calculation for net total amount of Profit/Losses
   netTotal += finances[i][1];
 
+  if (i > 0) {
 
-  if (i > 0){
-
-    var changeEachMonth = finances[i][1] - finances[i-1][1];
+    var changeEachMonth = finances[i][1] - finances[i - 1][1];
     totalChange += changeEachMonth;
 
-
-    if (changeEachMonth > greatestIncrease){
+    // Greatest Increase in Profits/Losses calculation
+    if (changeEachMonth > greatestIncrease) {
       greatestIncrease = changeEachMonth;
       var greatestIncreaseDate = finances[i][0];
     }
-
-    if (changeEachMonth < greatestDecrease){
+    
+    // Greatest Decrease in Profits/Losses calculation
+    if (changeEachMonth < greatestDecrease) {
       greatestDecrease = changeEachMonth;
       var greatestDecreaseDate = finances[i][0];
     }
@@ -121,15 +121,14 @@ for (var i = 0; i < finances.length; i++) {
 
 }
 
+// Calculation of the average change
 var averageChange = totalChange / (totalMonths - 1);
 
 console.log("Financial Analysis")
 console.log("- - - - - - - - - -")
 console.log("Total Months: " + finances.length)
-console.log("$" + netTotal)
-console.log("Average Change: " + averageChange)
+console.log("Total: $" + netTotal)
 console.log("Average Change: " + averageChange.toFixed(2))
-console.log("Average Change: " + Math.round((100 * averageChange) / 100))
 console.log("Greatest Increase in Profits/Losses: " + greatestIncreaseDate + " ($" + greatestIncrease + ")")
 console.log("Greatest Decrease in Profits/Losses: " + greatestDecreaseDate + " ($" + greatestDecrease + ")")
 
