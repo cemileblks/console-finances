@@ -7,8 +7,13 @@ This project is aimed to analyze financial records of a company given the datase
 
 The image below shows the website when console is opened. It provides all the aspects that were analyzed for the financial records of the company. 
 
+![Console Finances website displaying how it should look once opened with console contents](assets/images/screenshot.png)
+
+
 ## Deployment
 The deployed website is available at:
+
+[Console Finances](https://cemileblks.github.io/console-finances/)
 
 ## License
 
