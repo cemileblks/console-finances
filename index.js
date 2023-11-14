@@ -86,3 +86,51 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+
+var totalMonths = finances.length 
+var netTotal = 0
+
+var totalChange = 0 
+
+for (var i = 0; i < finances.length; i++) {
+  netTotal += finances[i][1];
+
+
+  if (i > 0){
+
+    var changeEachmonth = finances[i][1] - finances[i-1][1];
+    totalChange += changeEachmonth;
+
+
+
+
+  }
+
+
+  
+
+
+
+
+}
+
+
+var averageChange = totalChange / (totalMonths - 1);
+
+
+
+
+
+
+
+console.log("Financial Analysis")
+console.log("- - - - - - - - - -")
+console.log("Total Months: " + finances.length)
+console.log("$" + netTotal)
+console.log("Average Change: " + averageChange)
+console.log("Average Change: " + averageChange.toFixed(2))
+console.log("Average Change: " + Math.round((100 * averageChange) / 100))
+
+
+
