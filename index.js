@@ -93,36 +93,35 @@ var netTotal = 0
 
 var totalChange = 0 
 
+var greatestIncrease = 0
+
+var greatestDecrease = 0
+
 for (var i = 0; i < finances.length; i++) {
   netTotal += finances[i][1];
 
 
   if (i > 0){
 
-    var changeEachmonth = finances[i][1] - finances[i-1][1];
-    totalChange += changeEachmonth;
+    var changeEachMonth = finances[i][1] - finances[i-1][1];
+    totalChange += changeEachMonth;
 
 
+    if (changeEachMonth > greatestIncrease){
+      greatestIncrease = changeEachMonth;
+      var greatestIncreaseDate = finances[i][0];
+    }
 
+    if (changeEachMonth < greatestDecrease){
+      greatestDecrease = changeEachMonth;
+      var greatestDecreaseDate = finances[i][0];
+    }
 
   }
 
-
-  
-
-
-
-
 }
 
-
 var averageChange = totalChange / (totalMonths - 1);
-
-
-
-
-
-
 
 console.log("Financial Analysis")
 console.log("- - - - - - - - - -")
@@ -131,6 +130,9 @@ console.log("$" + netTotal)
 console.log("Average Change: " + averageChange)
 console.log("Average Change: " + averageChange.toFixed(2))
 console.log("Average Change: " + Math.round((100 * averageChange) / 100))
+console.log("Greatest Increase in Profits/Losses: " + greatestIncreaseDate + " ($" + greatestIncrease + ")")
+console.log("Greatest Decrease in Profits/Losses: " + greatestDecreaseDate + " ($" + greatestDecrease + ")")
+
 
 
 
